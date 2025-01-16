@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.fetch.data.repository.ItemRepositoryImpl
 import com.example.fetch.di.getApiService
 import com.example.fetch.di.getItemRepository
+import com.example.fetch.di.getItemsUseCase
 import com.example.fetch.domain.repository.ItemRepository
 import com.example.fetch.ui.screens.home.HomeScreen
 import com.example.fetch.ui.screens.home.HomeViewModel
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
     private val viewModel: HomeViewModel by viewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return HomeViewModel(getItemRepository(getApiService())) as T
+                return HomeViewModel(getItemsUseCase(getItemRepository( getApiService()))) as T
             }
         }
     }

@@ -1,9 +1,8 @@
 package com.example.fetch.domain.repository
 
-import com.example.fetch.domain.model.Item
-import kotlinx.coroutines.flow.Flow
+import com.example.fetch.data.model.ItemResponse
 
 interface ItemRepository {
 
-    fun getItems() : Flow<Map<Int, List<Item>>>
+    suspend fun getItems() : List<ItemResponse>
 }
